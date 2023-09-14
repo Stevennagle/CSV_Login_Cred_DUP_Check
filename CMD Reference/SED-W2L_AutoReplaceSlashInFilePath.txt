@@ -1,0 +1,25 @@
+DIR PATH
+  \->/, /->\ Replace Windows file path back-slashes \ with Linux file path forward-slashes / automatically from the Linux CLI :
+
+    Convert Win2Lin :
+    
+      $ sed 's;\\;/;g' <<< ""
+    
+      Example :
+        JohnConnor@DESKTOP MINGW64 /
+        $ sed 's;\\;/;g' <<< "C:\Users\JohnConnor\Desktop\Main\Code\Docker"
+        C:/Users/JohnConnor/Desktop/Main/Code/Docker
+    
+    Convert Lin2Win : 
+    
+      $ sed 's;/;\\;g' <<< ""
+      
+      Example :
+        JohnConnor@DESKTOP MINGW64 ~/Desktop/Main/Code
+        $ pwd
+        /c/Users/JohnConnor/Desktop/Main/Code
+
+        JohnConnor@DESKTOP MINGW64 ~/Desktop/Main/Code
+        $ sed 's;/;\\;g' <<<"C:/Users/JohnConnor/Desktop/Main/Code"
+        C:\Users\JohnConnor\Desktop\Main\Code
+
